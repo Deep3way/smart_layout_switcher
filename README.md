@@ -1,39 +1,67 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Smart Layout Switcher for Flutter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+[![Pub Version](https://img.shields.io/pub/v/smart_layout_switcher)](https://pub.dev/packages/smart_layout_switcher)
+[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A revolutionary Flutter package that automatically switches between list, grid, masonry, and
+staggered layouts with smooth animations based on screen size.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- 🚀 Automatic layout switching based on screen size
+- 🎨 Smooth animated transitions between layouts
+- ⚙️ Fully customizable breakpoints
+- 📱 Responsive design made simple
+- 🏗 Zero-boilerplate implementation
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  smart_layout_switcher: ^1.0.0
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Basic implementation:
 
 ```dart
-const like = 'sample';
+void main() {
+  SmartLayoutSwitcher(
+    children: List.generate(
+      20,
+          (index) => Card(child: Text('Item $index')),
+    ),
+  );
+}
 ```
 
-## Additional information
+Custom configuration:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+void main() {
+  SmartLayoutSwitcher(
+    children: myWidgets,
+    listThreshold: 500,
+    gridThreshold: 800,
+    masonryThreshold: 1100,
+    animationDuration: Duration(milliseconds: 500),
+    gridCrossAxisCount: 3,
+  );
+}
+```
+
+## Layout Thresholds
+
+| Layout    | Default Threshold | Description                     |
+|-----------|-------------------|---------------------------------|
+| List      | <600px            | Single column layout            |
+| Grid      | 600-900px         | Uniform grid layout             |
+| Masonry   | 900-1200px        | Pinterest-style masonry layout  |
+| Staggered | >1200px           | Staggered grid with large items |
+
+## License
+
+MIT
